@@ -5,7 +5,7 @@ import com.codeloger.core.Picker;
 public class StartUp {
 
 	/**
-	 * Æô¶¯Àà
+	 * å¯åŠ¨ç±»
 	 * @param args
 	 * void 
 	 * @author wx

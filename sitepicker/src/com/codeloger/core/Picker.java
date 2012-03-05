@@ -33,23 +33,23 @@ import com.gargoylesoftware.htmlunit.html.HtmlPage;
 
 public class Picker {
 	
-	//¿Í»§¶Ë¶ÔÏó
+	//å®¢æˆ·ç«¯å¯¹è±¡
 	private WebClient client = null;
 	
-	//ÎÄ¼ş±£´æÄ¿Â¼
+	//æ–‡ä»¶ä¿å­˜ç›®å½•
 	private String siteSaveFolder = "E:\\Site_Download";
 	
-	//×¥È¡ÍøÕ¾µÄÍøÖ·
-	private String siteUrl = "http://www.yongnian123.com";
+	//æŠ“å–ç½‘ç«™çš„ç½‘å€
+	private String siteUrl = "http://www.baidu.com";
 	
-	//¾²Ì¬×ÊÔ´ÁĞ±í
+	//é™æ€èµ„æºåˆ—è¡¨
 	private Map<String, StaticResourceModel> staticModels = new HashMap<String, StaticResourceModel>();
 	
 	public void start() throws Exception{
 		
-		//TODO ²»ÏÂÔØ·Ç±¾Õ¾µÄ¾²Ì¬×ÊÔ´ÓëÁ´½Ó
-		//TODO ²»¼ÌĞø×¥È¡ÒÑ¾­ÅÀ¹ıµÄÒ³Ãæ
-		//TODO 9skbÁ´½ÓĞ´·¨µÄÏÂÔØ
+		//TODO ä¸ä¸‹è½½éæœ¬ç«™çš„é™æ€èµ„æºä¸é“¾æ¥
+		//TODO ä¸ç»§ç»­æŠ“å–å·²ç»çˆ¬è¿‡çš„é¡µé¢
+		//TODO 9skbé“¾æ¥å†™æ³•çš„ä¸‹è½½
 		
 		if(!siteSaveFolder.endsWith(File.separator)){
 			siteSaveFolder += File.separator;
@@ -63,12 +63,12 @@ public class Picker {
 		staticModels.clear();
 		
 		client = new WebClient();
-		//ÉèÖÃcss activex applet Ê§Ğ§
+		//è®¾ç½®css activex applet å¤±æ•ˆ
 		client.setActiveXNative(false);
 		client.setAppletEnabled(false);
 		client.setCssEnabled(false);
 		client.setJavaScriptEnabled(false);
-		//10Ãë³¬Ê±
+		//10ç§’è¶…æ—¶
 		client.setTimeout(10 * 1000);
 		
 		fetchPage(siteUrl, "index.html");
@@ -76,12 +76,12 @@ public class Picker {
 		System.out.println("----------------------------------------------------------------------");
 		
 		
-		System.out.println("[ ÕıÔÚÏÂÔØ¾²Ì¬×ÊÔ´ÎÄ¼ş... ]");
+		System.out.println("[ æ­£åœ¨ä¸‹è½½é™æ€èµ„æºæ–‡ä»¶... ]");
 //		fetchStaticResources();
 	}
 	
 	/**
-	 * ×¥È¡Ò»¸öÒ³Ãæ
+	 * æŠ“å–ä¸€ä¸ªé¡µé¢
 	 * @param url
 	 * @param fileName
 	 * @throws Exception
@@ -91,7 +91,7 @@ public class Picker {
 	private void fetchPage(String url, String fileName) throws Exception{
 		HtmlPage page = client.getPage(url);
 		
-		//htmlÎÄ±¾
+		//htmlæ–‡æœ¬
 		String html = page.getWebResponse().getContentAsString();
 		
 //		html = getStaticResources(page, html);
@@ -101,7 +101,7 @@ public class Picker {
 	}
 	
 	/**
-	 * ¸ñÊ½»¯¾²Ì¬×ÊÔ´Á´½ÓµØÖ·£¬¸ÄÎªÍâÁ´
+	 * æ ¼å¼åŒ–é™æ€èµ„æºé“¾æ¥åœ°å€ï¼Œæ”¹ä¸ºå¤–é“¾
 	 * @param page
 	 * @param html
 	 * @return
@@ -110,7 +110,7 @@ public class Picker {
 	 */
 	private String changeStaticResources(HtmlPage page, String html, String pageUrl){
 		List<String> urlset = new ArrayList<String>();
-		//jsÎÄ¼ş
+		//jsæ–‡ä»¶
 		List<HtmlElement> scripts = page.getElementsByTagName("script");
 		for (HtmlElement script : scripts) {
 			if(script.hasAttribute("src")){
@@ -123,7 +123,7 @@ public class Picker {
 			}
 		}
 		
-		//css×ÊÔ´
+		//cssèµ„æº
 		List<HtmlElement> stylesheets = page.getElementsByTagName("link");
 		for (HtmlElement style : stylesheets) {
 			if(style.hasAttribute("type") 
@@ -138,7 +138,7 @@ public class Picker {
 			}
 		}
 		
-		//Í¼Æ¬×ÊÔ´
+		//å›¾ç‰‡èµ„æº
 		List<HtmlElement> images = page.getElementsByTagName("img");
 		for (HtmlElement image : images) {
 			if(image.hasAttribute("src")){
@@ -154,7 +154,7 @@ public class Picker {
 	}
 	
 	/**
-	 * È¡³ö¾²Ì¬×ÊÔ´ÎÄ¼ş
+	 * å–å‡ºé™æ€èµ„æºæ–‡ä»¶
 	 * @param page
 	 * @param html
 	 * @return
@@ -163,7 +163,7 @@ public class Picker {
 	 */
 	private String getStaticResources(HtmlPage page, String html){
 		
-		//jsÎÄ¼ş
+		//jsæ–‡ä»¶
 		List<HtmlElement> scripts = page.getElementsByTagName("script");
 		for (HtmlElement script : scripts) {
 			if(script.hasAttribute("src")){
@@ -176,7 +176,7 @@ public class Picker {
 			}
 		}
 		
-		//css×ÊÔ´
+		//cssèµ„æº
 		List<HtmlElement> stylesheets = page.getElementsByTagName("link");
 		for (HtmlElement style : stylesheets) {
 			if(style.hasAttribute("type") 
@@ -191,7 +191,7 @@ public class Picker {
 			}
 		}
 		
-		//Í¼Æ¬×ÊÔ´
+		//å›¾ç‰‡èµ„æº
 		List<HtmlElement> images = page.getElementsByTagName("img");
 		for (HtmlElement image : images) {
 			if(image.hasAttribute("src")){
@@ -207,7 +207,7 @@ public class Picker {
 	}
 	
 	/**
-	 * ±£´æhtmlÎÄ±¾
+	 * ä¿å­˜htmlæ–‡æœ¬
 	 * @param html
 	 * void 
 	 * @author Administrator
@@ -224,7 +224,7 @@ public class Picker {
 	}
 	
 	/**
-	 * ×¥È¡ÍøÒ³¾²Ì¬ÄÚÈİ£º ÏÂÔØ
+	 * æŠ“å–ç½‘é¡µé™æ€å†…å®¹ï¼š ä¸‹è½½
 	 * void 
 	 * @author wx
 	 */
@@ -235,7 +235,7 @@ public class Picker {
 		while(ite.hasNext()){
 			String key = ite.next();
 			StaticResourceModel model = staticModels.get(key);
-			//Ö´ĞĞÏÂÔØ
+			//æ‰§è¡Œä¸‹è½½
 			GetMethod get = new GetMethod(model.getUrl());
 			try {
 				client.executeMethod(get);
@@ -245,7 +245,7 @@ public class Picker {
 				}
 				File storeFile = new File(siteSaveFolder + model.getFilePath()); 
 		        FileOutputStream output = new FileOutputStream(storeFile);  
-		        //µÃµ½ÍøÂç×ÊÔ´µÄ×Ö½ÚÊı×é,²¢Ğ´ÈëÎÄ¼ş  
+		        //å¾—åˆ°ç½‘ç»œèµ„æºçš„å­—èŠ‚æ•°ç»„,å¹¶å†™å…¥æ–‡ä»¶  
 		        output.write(get.getResponseBody());  
 		        output.close();
 			} catch (Exception e) {

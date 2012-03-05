@@ -1,14 +1,14 @@
 package com.codeloger.util;
 
 /**
- * HttpÁ´½Ó¹¤¾ßÀà
+ * Httpé“¾æ¥å·¥å…·ç±»
  * @author wx
  */
 public class HttpUtil {
 
 	/**
-	 * »ñÈ¡×ÊÔ´µÄ¾²Ì¬Á´½Ó
-	 * Èç www.abc.com/index/view ÀïµÄ ../image/a.png£¬×éÖ¯ºó·µ»Øwww.abc.com/index/image/a.png
+	 * è·å–èµ„æºçš„é™æ€é“¾æ¥
+	 * å¦‚ www.abc.com/index/view é‡Œçš„ ../image/a.pngï¼Œç»„ç»‡åè¿”å›www.abc.com/index/image/a.png
 	 * @param pageUrl
 	 * @param resourceUrl
 	 * @return
@@ -24,10 +24,10 @@ public class HttpUtil {
 		if(resourceUrl.startsWith("http")){
 			return resourceUrl;
 		}else if(resourceUrl.startsWith("/")){
-			//Ê¹ÓÃµÄ¾ø¶ÔÂ·¾¶
+			//ä½¿ç”¨çš„ç»å¯¹è·¯å¾„
 			return protocol + host + resourceUrl;
 		}else if(resourceUrl.startsWith(".")){
-			//¿ÉÄÜÊÇ../Ïà¶ÔÂ·¾¶£¬»òÕß./Ğ´·¨µÄÍ¬Ä¿Â¼Â·¾¶
+			//å¯èƒ½æ˜¯../ç›¸å¯¹è·¯å¾„ï¼Œæˆ–è€…./å†™æ³•çš„åŒç›®å½•è·¯å¾„
 			int parentCount = StringUtil.getCharacterCount(resourceUrl, "../");
 			String domainUrl = pageUrl.replace(protocol, "");
 			String[] dirs = domainUrl.replace("//", "/").split("/");
@@ -41,13 +41,13 @@ public class HttpUtil {
 			String resourceDir = resourceUrl.replace("../", "").replace("./", "");
 			return protocol + buffer.toString() + resourceDir;
 		}else{
-			//Ïà¶ÔÂ·¾¶
+			//ç›¸å¯¹è·¯å¾„
 			return pageUrl + resourceUrl;
 		}
 	}
 	
 	/**
-	 * »ñÈ¡Ğ­Òé
+	 * è·å–åè®®
 	 * @param url
 	 * @return
 	 * @author wx
@@ -57,7 +57,7 @@ public class HttpUtil {
 	}
 	
 	/**
-	 * »ñÈ¡hostµØÖ·
+	 * è·å–hoståœ°å€
 	 * @param url
 	 * @return
 	 * String 

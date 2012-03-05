@@ -2,12 +2,12 @@ package com.codeloger.util;
 
 
 /**
- * ´ËÀàÖ÷ÒªÎªÎªstringµÄ¸¨ÖúÀà,Ò»Ğ©¹«¹²µÄ·½·¨
+ * æ­¤ç±»ä¸»è¦ä¸ºä¸ºstringçš„è¾…åŠ©ç±»,ä¸€äº›å…¬å…±çš„æ–¹æ³•
  */
 public class StringUtil {
 
 	/**
-	 * ÊÇ·ñÎª¿Õ
+	 * æ˜¯å¦ä¸ºç©º
 	 * @param str
 	 * @return
 	 * @author wx
@@ -21,7 +21,7 @@ public class StringUtil {
 	}
 	
 	/**
-	 * »ñÈ¡×Ö·û´®°üº¬¼¸¸öÌØ¶¨×Ö·û
+	 * è·å–å­—ç¬¦ä¸²åŒ…å«å‡ ä¸ªç‰¹å®šå­—ç¬¦
 	 * @param str
 	 * @param aChar
 	 * @return

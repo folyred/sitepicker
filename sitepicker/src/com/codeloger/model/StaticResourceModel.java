@@ -31,7 +31,7 @@ public abstract class StaticResourceModel {
 	}
 	
 	/**
-	 * »ñÈ¡±£´æÂ·¾¶
+	 * è·å–ä¿å­˜è·¯å¾„
 	 * @return
 	 * String 
 	 * @author wx
@@ -39,7 +39,7 @@ public abstract class StaticResourceModel {
 	public abstract String savePath();
 	
 	/**
-	 * »ñÈ¡ºó×ºÃû
+	 * è·å–åç¼€å
 	 * @return
 	 * String 
 	 * @author wx
